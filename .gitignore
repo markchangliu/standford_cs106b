@@ -1,0 +1,41 @@
+# Build artifacts
+*.o
+*.obj
+*.exe
+*.out
+*.dll
+*.so
+*.dylib
+*.lib
+*.a
+build/
+bin/
+Debug/
+Release/
+
+# Temporary files
+*~
+*.bak
+*.tmp
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+*.suo
+*.user
+*.ncb
+*.opendb
+.qtcreator
+
+# Dependency management
+vcpkg_installed/
+conanbuildinfo.cmake
+conaninfo.txt
+
+# Log files
+*.log
+
+.qtcreator
+**/build
+**/*.exe
+**/*.pro.user
