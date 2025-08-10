@@ -39,3 +39,4 @@ conaninfo.txt
 **/build
 **/*.exe
 **/*.pro.user
+**/.DS_STORE
