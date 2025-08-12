@@ -5,17 +5,41 @@
 #include "PlayingFair.h"
 #include "GUI/SimpleTest.h"
 #include "error.h"
+
 using namespace std;
 
+
 string aSequenceOfOrder(int n) {
-    /* TODO: Delete this line and the next two lines, then implement this function. */
-    (void) n;
+    if(n < 0){
+        error("The integer must be greater than 0.");
+    }
+    if(n == 0){
+        return "A";
+    }
+    if(n > 0){
+        string half_1st = aSequenceOfOrder(n - 1);
+        string half_2nd = bSequenceOfOrder(n - 1);
+        string a_seq = half_1st + half_2nd;
+        return a_seq;
+    }
+    
     return "";
 }
 
 string bSequenceOfOrder(int n) {
-    /* TODO: Delete this line and the next two lines, then implement this function. */
-    (void) n;
+    if(n < 0){
+        error("The integer must be greater than 0.");
+    }
+    if(n == 0){
+        return "B";
+    }
+    if(n > 0){
+        string half_1st = bSequenceOfOrder(n - 1);
+        string half_2nd = aSequenceOfOrder(n - 1);
+        string b_seq = half_1st + half_2nd;
+        return b_seq;
+    }
+    
     return "";
 }
 
