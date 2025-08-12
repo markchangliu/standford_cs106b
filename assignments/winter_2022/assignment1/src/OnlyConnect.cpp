@@ -6,14 +6,43 @@
  */
 #include "OnlyConnect.h"
 #include "GUI/SimpleTest.h"
+#include "strlib.h"
+
 using namespace std;
 
 string onlyConnectize(string phrase) {
     /* TODO: The next few lines just exist to make sure you don't get compiler warning messages
      * when this function isn't implemented. Delete these lines, then implement this function.
      */
-    (void) phrase;
-    return "";
+    string phrase_new;
+    for (char ch: phrase)
+    {
+        if (!((ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122)))
+        {
+            continue;
+        }
+        
+        if (ch >= 97 && ch <= 122)
+        {
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+            {
+                continue;
+            }
+        }
+        
+        if (ch >= 65 && ch <= 90){
+            if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+            {
+                continue;
+            }
+        }
+        
+        phrase_new += ch;
+    }
+    
+    phrase_new = toUpperCase(phrase_new);
+    
+    return phrase_new;
 }
 
 
@@ -54,6 +83,14 @@ PROVIDED_TEST("Handles single-character inputs.") {
  * Happy testing!
  */
 
+PROVIDED_TEST("Examples from assignment sheet"){
+    EXPECT_EQUAL(onlyConnectize("Elena Kagan"), "LNKGN");
+    EXPECT_EQUAL(onlyConnectize("Antonin Scalia"), "NTNNSCL");
+    EXPECT_EQUAL(onlyConnectize("EE 364A"), "");
+    EXPECT_EQUAL(onlyConnectize("For sale: baby shoes, never worn."), "FRSLBBYSHSNVRWRN");
+    EXPECT_EQUAL(onlyConnectize("I'm the bad guy. (Duh!)"), "MTHBDGYDH");
+    EXPECT_EQUAL(onlyConnectize("Annie Mae, My Sea Anemone Enemy!"), "NNMMYSNMNNMY");
+}
 
 
 
